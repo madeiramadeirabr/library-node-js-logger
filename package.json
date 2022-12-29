@@ -1,0 +1,59 @@
+{
+  "name": "mm-nodejs-logger",
+  "version": "1.0.0",
+  "description": "Nodejs library to provide the easy and maintainable mode to following mmrfc convention",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "format": "prettier --write \"**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "test": "jest --config=jest-config.json",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "prepublish:npm": "npm run build",
+    "publish:npm": "npm publish",
+    "changelog": "auto-changelog -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madeiramadeirabr/node-js-logger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madeiramadeirabr/node-js-logger/issues"
+  },
+  "homepage": "https://github.com/madeiramadeirabr/node-js-logger#readme",
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "lint-staged": "^13.1.0",
+    "prettier": "2.8.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@newrelic/winston-enricher": "^4.0.1",
+    "reflect-metadata": "^0.1.13",
+    "winston": "^3.8.2"
+  }
+}
