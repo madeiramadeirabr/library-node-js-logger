@@ -1,22 +1,22 @@
 import {
-  WinstonCreateLoggerMock,
-  WinstonLoggerFormatMock,
-  WinstonLoggerMock,
-} from '../mock/winston-logger-mock';
-import { WinstonLogger } from '../../libs/src/node-js-logger.service';
+  NodeJsCreateLoggerMock,
+  NodeJsLoggerFormatMock,
+  NodeJsLoggerMock,
+} from '../mock/nodejs-logger-mock';
+import { NodeJsLoggerService } from '../../libs/src/node-js-logger.service';
 import { LoggerLevel } from '../../libs/src/types/logger-level-enum';
 
 jest.mock('winston', () => ({
-  format: WinstonLoggerFormatMock,
-  createLogger: WinstonCreateLoggerMock,
+  format: NodeJsLoggerFormatMock,
+  createLogger: NodeJsCreateLoggerMock,
   transports: {
     Console: jest.fn(),
   },
 }));
 
 
-describe('WinstonLogger', () => {
-  const logger = new WinstonLogger();
+describe('NodeJsLoggerService', () => {
+  const logger = new NodeJsLoggerService();
 
   const cases = [
     { method: 'error', libMethod: 'error' },
@@ -28,7 +28,7 @@ describe('WinstonLogger', () => {
   describe.each(cases)('$method', ({ method, libMethod }) => {
     it(`should call the ${method} method with the correct parameters`, () => {
       logger[method]('foo', { foz: 'baz' });
-      expect(WinstonLoggerMock[libMethod]).toBeCalledWith({
+      expect(NodeJsLoggerMock[libMethod]).toBeCalledWith({
         message: 'foo',
         context: { foz: 'baz' },
       });
@@ -36,43 +36,43 @@ describe('WinstonLogger', () => {
 
     it(`should call the ${method} method with the correct parameters without context`, () => {
       logger[method]('foo');
-      expect(WinstonLoggerMock[libMethod]).toBeCalledWith({ message: 'foo' });
+      expect(NodeJsLoggerMock[libMethod]).toBeCalledWith({ message: 'foo' });
     });
   });
 
   describe('prettyPrint', () => {
-    const loggerPrettyPrint = new WinstonLogger({ usePrettyPrint: true });
+    const loggerPrettyPrint = new NodeJsLoggerService({ usePrettyPrint: true });
     it('should call prettyPrint method', () => {
       loggerPrettyPrint.info('foo');
-      expect(WinstonLoggerFormatMock.prettyPrint).toBeCalled();
+      expect(NodeJsLoggerFormatMock.prettyPrint).toBeCalled();
     });
   });
 
   describe('makeLevel', () => {
     it('should return the correct level for debug', () => {
-      const loggerMakeLevel = new WinstonLogger({
+      const loggerMakeLevel = new NodeJsLoggerService({
         level: LoggerLevel.debug,
       });
       loggerMakeLevel.info('foo');
-      expect(WinstonCreateLoggerMock).toBeCalledWith(
+      expect(NodeJsCreateLoggerMock).toBeCalledWith(
         expect.objectContaining({ level: 'debug' }),
       );
     });
 
     it('should return the level received if it is not mapped', () => {
-      const loggerMakeLevel = new WinstonLogger({
+      const loggerMakeLevel = new NodeJsLoggerService({
         level: 'bar' as any,
       });
       loggerMakeLevel.info('foo');
-      expect(WinstonCreateLoggerMock).toBeCalledWith(
+      expect(NodeJsCreateLoggerMock).toBeCalledWith(
         expect.objectContaining({ level: 'bar' }),
       );
     });
 
     it('should return the correct default level', () => {
-      const loggerMakeLevel = new WinstonLogger();
+      const loggerMakeLevel = new NodeJsLoggerService();
       loggerMakeLevel.info('foo');
-      expect(WinstonCreateLoggerMock).toBeCalledWith(
+      expect(NodeJsCreateLoggerMock).toBeCalledWith(
         expect.objectContaining({ level: 'info' }),
       );
     });
@@ -82,7 +82,7 @@ describe('WinstonLogger', () => {
     it('should call the error method with the correct parameters with error stack', () => {
       const error = new Error('bar');
       logger.error('foo', error);
-      expect(WinstonLoggerMock.error).toBeCalledWith({
+      expect(NodeJsLoggerMock.error).toBeCalledWith({
         message: 'foo',
         context: error,
         stack: error.stack,

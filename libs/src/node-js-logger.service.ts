@@ -1,22 +1,22 @@
 import { Format } from 'logform';
-import { createLogger, format, transports, Logger as Winston } from 'winston';
+import { createLogger, format, transports, Logger as NodeJsLogger } from 'winston';
 import { Logger } from './logger';
 import { LoggerConfigType } from './types/logger-config-type';
 import { LoggerLevel } from './types/logger-level-enum';
 
-export class WinstonLogger implements Logger {
-  private logger: Winston;
+export class NodeJsLoggerService implements Logger {
+  private logger: NodeJsLogger;
 
   constructor(private readonly config?: LoggerConfigType) {}
 
-  private getLogger(): Winston {
+  private getLogger(): NodeJsLogger {
     if (!this.logger) {
       this.logger = this.createLogger();
     }
     return this.logger;
   }
 
-  private getWinstonFormattersByEnv(): Format[] {
+  private getNodeJsFormattersByEnv(): Format[] {
     const formatters: Format[] = [format.timestamp(), format.json()];
 
     if (this.config?.usePrettyPrint) {
@@ -34,7 +34,7 @@ export class WinstonLogger implements Logger {
 
   private createLogger() {
     return createLogger({
-      format: format.combine(...this.getWinstonFormattersByEnv()),
+      format: format.combine(...this.getNodeJsFormattersByEnv()),
       transports: [new transports.Console()],
       levels: {
         error: 1,

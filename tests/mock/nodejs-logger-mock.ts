@@ -1,11 +1,11 @@
-export const WinstonLoggerMock = {
+export const NodeJsLoggerMock = {
   error: jest.fn(),
   info: jest.fn(),
   warn: jest.fn(),
   debug: jest.fn(),
 };
 
-export const WinstonLoggerFormatMock = {
+export const NodeJsLoggerFormatMock = {
   colorize: jest.fn(),
   combine: jest.fn(),
   label: jest.fn(),
@@ -15,6 +15,6 @@ export const WinstonLoggerFormatMock = {
   prettyPrint: jest.fn(),
 };
 
-export const WinstonCreateLoggerMock = jest
+export const NodeJsCreateLoggerMock = jest
   .fn()
-  .mockReturnValue(WinstonLoggerMock);
+  .mockReturnValue(NodeJsLoggerMock);
