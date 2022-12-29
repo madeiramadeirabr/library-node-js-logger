@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: node-js-logger
+  description: Node Js Logger é uma biblioteca para facilitar e padronizar a forma de trabalho dos logs em projetos nodejs na madeiramadeira, seguindo as regras do MMRFC.
+  annotations:
+    github.com/project-slug: madeiramadeirabr/node-js-logger
+  tags:
+    - node
+    - libary
+spec:
+  type: lib
+  lifecycle: production
+  owner: squad-catalog
