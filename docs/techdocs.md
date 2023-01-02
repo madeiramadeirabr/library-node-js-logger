@@ -40,14 +40,21 @@ Com a biblioteca instalada e todas as configurações feitas, será necessário 
 $ import { NodeJsLoggerService } from 'mm-nodejs-logger';
 ```
 
+Após a importação da biblioteca, deve-se instanciar a classe dentro da função que será utilizada:
+
+```shell
+const logger = new NodeJsLoggerService();
+```
+
 Exemplo de uso passando o evento a ser enviado para a NewRelic como um log do tipo warn:
 
 ```shell
-this.logger.warn(identifier, ContextLoggerEnum.PRODUCT_HUB_PRODUCT_SERVICE_GET_FAILED_MESSAGE);
+logger.warn(identifier, ContextLoggerEnum.PRODUCT_HUB_PRODUCT_SERVICE_GET_FAILED_MESSAGE);
 ```
 
 ###### Exemplo de utilização da biblioteca
 
+![examplo de uso da biblioteca](./assets/techdocs/library_use_example.png)
 
 ## Contrato das funções de disparo de logs
 
