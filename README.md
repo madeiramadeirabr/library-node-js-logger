@@ -1,6 +1,6 @@
-# NodeJs Logger
+# Node Js Logger
 
-![nodejs versão 14.x](https://img.shields.io/badge/nodejs-v14.x-green) ![typescript versão 4.9.4](https://img.shields.io/badge/typescript-v4.8.3-blue) 
+![nodejs versão 14.x](https://img.shields.io/badge/nodejs-v14.x-green) ![typescript versão 4.9.4](https://img.shields.io/badge/typescript-v4.8.3-blue)
 
 ##### Node Js Logger is a library to facility and standardize the way of logs works in nodejs projects at madeiramadeira, following the [MMRFC](https://madeiramadeira.atlassian.net/l/cp/an1pP602) rules.
 

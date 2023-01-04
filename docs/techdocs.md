@@ -54,7 +54,7 @@ logger.warn(identifier, ContextLoggerEnum.PRODUCT_HUB_PRODUCT_SERVICE_GET_FAILED
 
 ###### Exemplo de utilização da biblioteca
 
-![examplo de uso da biblioteca](./assets/techdocs/library_use_example.png)
+![exemplo de uso da biblioteca](./assets/techdocs/library_use_example.png)
 
 ## Contrato das funções de disparo de logs
 
