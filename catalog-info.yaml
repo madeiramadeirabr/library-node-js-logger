@@ -7,8 +7,8 @@ metadata:
     github.com/project-slug: madeiramadeirabr/node-js-logger
   tags:
     - node
-    - libary
+    - library
 spec:
-  type: lib
+  type: library
   lifecycle: production
   owner: squad-catalog
