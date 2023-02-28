@@ -16,6 +16,22 @@ O Node Js Logger é uma biblioteca que implementa a padronização de logs da [M
 
 ## Configurações
 
+### Orquestração
+A orquestração de lambdas na madeira madeira é feita automática ( configuração do new relic )
+
+Porém se faz necessário a adição de algumas configurações no arquivo serverless.yml
+Exemplo: https://github.com/madeiramadeirabr/smartcloud-images-integrator/blob/production/serverless.yaml
+
+Também é necessário instalar alguns pacotes utilitários do serverless, como: 
+
+```
+    "serverless": "^3.20.0",
+    "serverless-offline": "^8.8.1",
+    "serverless-plugin-resource-tagging": "^1.2.0",
+    "serverless-tag-cloud-watch-logs": "^1.0.0",
+    "serverless-webpack": "^5.7.1",
+```    
+
 ### Instalar a biblioteca
 
 Para usar a biblioteca, você precisa instalar utilizando NPM ou YARN:
