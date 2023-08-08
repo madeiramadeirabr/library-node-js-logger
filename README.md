@@ -1,4 +1,8 @@
-# Node Js Logger
+# Node Js Logger - Deprecated
+
+Essa é uma versão que aplica a RFC de logs usando bibliotecas externas em sua implementação. Não tem problema usar essa versão, porém, **recomenda-se** o uso dessa bibiloteca [lib-node-logger](https://github.com/madeiramadeirabr/lib-node-logger)
+
+---
 
 ![nodejs versão 14.x](https://img.shields.io/badge/nodejs-v14.x-green) ![typescript versão 4.9.4](https://img.shields.io/badge/typescript-v4.8.3-blue)
 
