@@ -8,6 +8,10 @@ metadata:
   tags:
     - node
     - library
+    - level-0
+  rfc:
+    - MMRFC_LOG: '1.0'
+    - MMRFC_REPOSITORY_NAME: '1.0'
 spec:
   type: library
   lifecycle: production
